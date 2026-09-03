@@ -24,11 +24,11 @@ export function GameTile({
   showJackpot = true,
 }: GameTileProps) {
   return (
-    <article className="group relative isolate flex h-full flex-col overflow-hidden rounded-tile bg-surface shadow-tile ring-1 ring-border transition duration-300 ease-out-quart hover:-translate-y-1 hover:shadow-lifted hover:ring-border-strong focus-within:-translate-y-1">
+    <article className="group relative isolate flex h-full flex-col overflow-hidden rounded-tile bg-surface shadow-tile ring-1 ring-border transition-[scale,box-shadow] duration-200 ease-out-quart will-change-transform hover:scale-[1.03] hover:shadow-lifted focus-within:scale-[1.03]">
       <div className="relative overflow-hidden">
         <div
           className={cn(
-            'flex items-center justify-center transition-transform duration-500 ease-out-quart group-hover:scale-110',
+            'flex items-center justify-center transition-transform duration-300 ease-out-quart will-change-transform group-hover:scale-105',
             SIZE_CLASS[size],
           )}
           style={{
@@ -48,7 +48,7 @@ export function GameTile({
           </div>
         )}
 
-        <div className="pointer-events-none absolute inset-0 grid place-items-center bg-surface-sunken/55 opacity-0 backdrop-blur-[2px] transition-opacity duration-300 ease-out-quart group-hover:opacity-100">
+        <div className="pointer-events-none absolute inset-0 grid place-items-center bg-surface-sunken/50 opacity-0 transition-opacity duration-200 ease-out-quart group-hover:opacity-100">
           <span className="rounded-pill bg-brand px-4 py-1.5 text-xs font-bold tracking-wide text-brand-contrast uppercase shadow-tile">
             Play
           </span>

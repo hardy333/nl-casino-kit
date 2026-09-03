@@ -119,7 +119,8 @@ export function Carousel({
       <div
         ref={emblaRef}
         className={cn(
-          'overflow-hidden',
+          // Padding gives hover scale room; the negative margin keeps alignment.
+          '-my-3 overflow-hidden py-3',
           edgeFade &&
             '[mask-image:linear-gradient(to_right,transparent,black_2%,black_98%,transparent)]',
         )}

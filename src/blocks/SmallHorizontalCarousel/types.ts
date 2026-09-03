@@ -14,7 +14,7 @@ export type WinTile = {
 export type SmallHorizontalCarouselProps = {
   title: string
   source: WinTileSource
-  category: GameCategory
+  category: GameCategory | ''
   maxItems: number
   tileWidth: number
   showLiveDot: boolean

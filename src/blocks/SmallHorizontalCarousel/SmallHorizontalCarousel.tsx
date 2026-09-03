@@ -9,7 +9,7 @@ function fromCatalogue(
   category: SmallHorizontalCarouselProps['category'],
   maxItems: number,
 ): WinTile[] {
-  return getGames({ category, limit: maxItems }).map((game) => ({
+  return getGames({ category: category || undefined, limit: maxItems }).map((game) => ({
     label: game.name,
     amount: game.jackpot ?? `${(Math.random() * 40 + 1).toFixed(2)}K`,
     currency: 'EUR',

@@ -24,7 +24,7 @@ export const gameCarouselConfig: ComponentConfig<GameCarouselProps> = {
     title: 'Trending now',
     subtitle: 'Swipe or drag to browse',
     category: 'slots',
-    maxGames: 12,
+    maxGames: 16,
     slidesToShow: 4,
     hotOnly: false,
     showBadges: true,

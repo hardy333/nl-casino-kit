@@ -33,7 +33,7 @@ export const bigCarouselConfig: ComponentConfig<BigCarouselProps> = {
     icon: '🔥',
     source: 'catalogue',
     category: 'slots',
-    maxGames: 12,
+    maxGames: 16,
     slidesToShow: 6,
     showBadges: true,
     showJackpots: false,

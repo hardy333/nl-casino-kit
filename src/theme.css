@@ -55,3 +55,21 @@
 @utility text-glow-brand {
   text-shadow: 0 0 24px oklch(66% 0.19 156 / 0.4);
 }
+
+@layer base {
+  button:not(:disabled),
+  [role='button']:not([aria-disabled='true']),
+  [role='radio']:not([aria-disabled='true']),
+  a[href],
+  summary,
+  label:has(input[type='checkbox']),
+  label:has(input[type='radio']),
+  select {
+    cursor: pointer;
+  }
+
+  button:disabled,
+  [aria-disabled='true'] {
+    cursor: not-allowed;
+  }
+}
