@@ -9,17 +9,17 @@ type PillProps = {
 }
 
 const TONE_CLASS: Record<PillTone, string> = {
-  brand: 'bg-brand/15 text-brand-hover',
-  gold: 'bg-gold/15 text-gold',
-  neutral: 'bg-surface-raised text-muted',
-  danger: 'bg-danger/15 text-danger',
+  brand: 'bg-brand/15 text-brand-hover ring-1 ring-inset ring-brand/25',
+  gold: 'bg-gold/15 text-gold ring-1 ring-inset ring-gold/25',
+  neutral: 'bg-surface-raised text-muted ring-1 ring-inset ring-border',
+  danger: 'bg-danger/20 text-danger ring-1 ring-inset ring-danger/30',
 }
 
 export function Pill({ children, tone = 'neutral' }: PillProps) {
   return (
     <span
       className={cn(
-        'inline-flex items-center rounded-pill px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wide',
+        'inline-flex items-center rounded-pill px-2 py-0.5 text-[10px] font-bold tracking-[0.08em] uppercase backdrop-blur-sm',
         TONE_CLASS[tone],
       )}
     >

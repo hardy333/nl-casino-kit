@@ -12,7 +12,8 @@ export default defineConfig({
     dts({ include: ['src'], rollupTypes: true, tsconfigPath: './tsconfig.json' }),
     {
       name: 'copy-theme-css',
-      closeBundle() {
+      // writeBundle also fires in watch mode, where closeBundle does not
+      writeBundle() {
         copyFileSync(resolve(root, 'src/theme.css'), resolve(root, 'dist/theme.css'))
       },
     },

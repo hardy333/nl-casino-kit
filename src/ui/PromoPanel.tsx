@@ -20,9 +20,15 @@ type PromoPanelProps = {
 }
 
 const HEIGHT_CLASS: Record<PromoPanelHeight, string> = {
-  sm: 'min-h-48 px-6 py-8 sm:px-10',
-  md: 'min-h-64 px-6 py-12 sm:px-12',
-  lg: 'min-h-80 px-6 py-16 sm:px-14',
+  sm: 'min-h-52 px-6 py-10 sm:px-10',
+  md: 'min-h-72 px-6 py-14 sm:px-12',
+  lg: 'min-h-[26rem] px-6 py-20 sm:px-16',
+}
+
+const TITLE_CLASS: Record<PromoPanelHeight, string> = {
+  sm: 'text-3xl sm:text-4xl',
+  md: 'text-4xl sm:text-5xl',
+  lg: 'text-4xl sm:text-6xl',
 }
 
 const ITEMS_CLASS: Record<Align, string> = {
@@ -53,26 +59,35 @@ export function PromoPanel({
         )}
       >
         {eyebrow && (
-          <p className="mb-2 text-xs font-semibold tracking-[0.2em] text-white/70 uppercase">
+          <p className="mb-3 inline-flex items-center rounded-pill bg-black/25 px-3 py-1 text-[11px] font-bold tracking-[0.22em] text-white/85 uppercase ring-1 ring-inset ring-white/20 backdrop-blur-sm">
             {eyebrow}
           </p>
         )}
 
-        <h2 className="max-w-2xl text-3xl font-bold tracking-tight text-white sm:text-4xl">
+        <h2
+          className={cn(
+            'max-w-3xl font-extrabold tracking-[-0.03em] text-balance text-white drop-shadow-[0_2px_12px_rgb(0_0_0/0.35)]',
+            TITLE_CLASS[height],
+          )}
+        >
           {title}
         </h2>
 
-        {subtitle && <p className="mt-3 max-w-xl text-sm text-white/80 sm:text-base">{subtitle}</p>}
+        {subtitle && (
+          <p className="mt-4 max-w-xl text-base leading-relaxed text-pretty text-white/85 sm:text-lg">
+            {subtitle}
+          </p>
+        )}
 
         {ctas.length > 0 && (
-          <div className="mt-6 flex flex-wrap gap-3">
+          <div className={cn('mt-8 flex flex-wrap gap-3', align === 'center' && 'justify-center')}>
             {ctas.map((item, index) => (
-              <ActionButton key={index} cta={item} />
+              <ActionButton key={index} cta={item} size="lg" />
             ))}
           </div>
         )}
 
-        {footer && <div className="mt-6">{footer}</div>}
+        {footer && <div className="mt-8">{footer}</div>}
       </div>
     </GradientSurface>
   )

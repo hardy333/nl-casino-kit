@@ -29,6 +29,8 @@ export type BlockName =
   | 'Text'
   | 'Divider'
   | 'ResponsibleGambling'
+  | 'GameCard'
+  | 'GameCardGrid'
 
 export type Align = 'left' | 'center' | 'right'
 export type ButtonVariant = 'neon' | 'gold' | 'outline' | 'ghost'
@@ -67,6 +69,8 @@ export const PAGES: Record<PageId, PageDefinition> = {
       'Text',
       'Divider',
       'ResponsibleGambling',
+      'GameCard',
+      'GameCardGrid',
     ],
     required: [],
   },

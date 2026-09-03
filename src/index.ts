@@ -12,10 +12,13 @@ export { GradientSurface } from './ui/GradientSurface'
 export { GameTile } from './ui/GameTile'
 export { Pill } from './ui/Pill'
 export { EmptyState } from './ui/EmptyState'
+export { NextLevelGameIcon } from './ui/NextLevelGameIcon'
 export { PromoPanel } from './ui/PromoPanel'
 export { JUSTIFY_CLASS, TEXT_ALIGN_CLASS } from './ui/align'
 
 export { GAMES, GAME_CATEGORIES, getGames, getGameById } from './data/games'
+export { NEXT_LEVEL_GAMES, findNextLevelGame, nextLevelGameOptions } from './data/nextLevelGames'
+export type { NextLevelGame, NextLevelGameId } from './data/nextLevelGames'
 export type { Game, GameCategory } from './data/games'
 
 export * from './blocks/fields'
