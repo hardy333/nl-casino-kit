@@ -31,6 +31,7 @@ export type BlockName =
   | 'ResponsibleGambling'
   | 'GameCard'
   | 'GameCardGrid'
+  | 'GameCarousel'
 
 export type Align = 'left' | 'center' | 'right'
 export type ButtonVariant = 'neon' | 'gold' | 'outline' | 'ghost'
@@ -71,6 +72,7 @@ export const PAGES: Record<PageId, PageDefinition> = {
       'ResponsibleGambling',
       'GameCard',
       'GameCardGrid',
+      'GameCarousel',
     ],
     required: [],
   },

@@ -14,6 +14,7 @@ export { Pill } from './ui/Pill'
 export { EmptyState } from './ui/EmptyState'
 export { NextLevelGameIcon } from './ui/NextLevelGameIcon'
 export { ColorPicker } from './ui/ColorPicker'
+export { Carousel } from './ui/Carousel'
 export { PromoPanel } from './ui/PromoPanel'
 export { JUSTIFY_CLASS, TEXT_ALIGN_CLASS } from './ui/align'
 

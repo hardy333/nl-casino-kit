@@ -8,6 +8,7 @@ import { dividerConfig } from './Divider'
 import { dropdownMenuConfig } from './DropdownMenu'
 import { gameCardConfig } from './GameCard'
 import { gameCardGridConfig } from './GameCardGrid'
+import { gameCarouselConfig } from './GameCarousel'
 import { gameGridConfig } from './GameGrid'
 import { headingConfig } from './Heading'
 import { heroBannerConfig } from './HeroBanner'
@@ -25,6 +26,7 @@ export const BLOCKS: Record<BlockName, ComponentConfig<any>> = {
   GameGrid: gameGridConfig,
   GameCard: gameCardConfig,
   GameCardGrid: gameCardGridConfig,
+  GameCarousel: gameCarouselConfig,
   PromoCarousel: promoCarouselConfig,
   JackpotTicker: jackpotTickerConfig,
   TournamentWidget: tournamentWidgetConfig,
@@ -51,6 +53,7 @@ export const CATEGORIES: Record<string, { title: string; components: BlockName[]
       'GameGrid',
       'GameCard',
       'GameCardGrid',
+      'GameCarousel',
       'PromoCarousel',
       'JackpotTicker',
       'TournamentWidget',
