@@ -53,35 +53,48 @@ export const CATEGORIES: Record<
   string,
   { title: string; components: BlockName[]; defaultExpanded: boolean }
 > = {
-  casino: {
-    title: 'Casino',
+  base: {
+    title: 'Base',
     defaultExpanded: true,
     components: [
-      'HeroBanner',
-      'GameGrid',
-      'GameCard',
-      'GameCardGrid',
-      'GameCarousel',
-      'BigCarousel',
-      'SmallHorizontalCarousel',
-      'PromoCarousel',
-      'JackpotTicker',
-      'TournamentWidget',
+      'Heading',
+      'Text',
+      'ButtonRow',
+      'Divider',
+      'Tabs',
+      'Accordion',
+      'DropdownMenu',
+      'ModalOpener',
     ],
   },
-  interactive: {
-    title: 'Interactive',
-    defaultExpanded: false,
-    components: ['Tabs', 'Accordion', 'DropdownMenu', 'ModalOpener', 'Counter'],
+  games: {
+    title: 'Games',
+    defaultExpanded: true,
+    components: ['GameCard', 'GameGrid', 'GameCardGrid'],
   },
-  content: {
-    title: 'Content',
+  carousels: {
+    title: 'Carousels',
     defaultExpanded: false,
-    components: ['CardGrid', 'Heading', 'Text', 'ResponsibleGambling'],
+    components: [
+      'BigCarousel',
+      'SmallHorizontalCarousel',
+      'GameCarousel',
+      'PromoCarousel',
+    ],
   },
-  layout: {
-    title: 'Layout',
+  promotion: {
+    title: 'Promotion',
     defaultExpanded: false,
-    components: ['ButtonRow', 'Divider'],
+    components: ['HeroBanner', 'CardGrid'],
+  },
+  complex: {
+    title: 'Complex',
+    defaultExpanded: false,
+    components: ['JackpotTicker', 'TournamentWidget', 'Counter'],
+  },
+  compliance: {
+    title: 'Compliance',
+    defaultExpanded: false,
+    components: ['ResponsibleGambling'],
   },
 }
