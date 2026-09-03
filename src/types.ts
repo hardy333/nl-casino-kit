@@ -2,7 +2,7 @@ import type { Data } from '@puckeditor/core'
 
 export type PageData = Data
 
-export type PageId = 'home'
+export type PageId = 'home' | 'our-games' | 'about-us'
 
 export type PageDefinition = {
   id: PageId
@@ -55,6 +55,65 @@ export const PAGES: Record<PageId, PageDefinition> = {
     id: 'home',
     name: 'Home',
     description: 'The casino landing page',
+    allowed: [
+      'HeroBanner',
+      'GameGrid',
+      'PromoCarousel',
+      'JackpotTicker',
+      'TournamentWidget',
+      'Tabs',
+      'Accordion',
+      'DropdownMenu',
+      'ModalOpener',
+      'Counter',
+      'ButtonRow',
+      'CardGrid',
+      'Heading',
+      'Text',
+      'Divider',
+      'ResponsibleGambling',
+      'GameCard',
+      'GameCardGrid',
+      'GameCarousel',
+      'BigCarousel',
+      'SmallHorizontalCarousel',
+    ],
+    required: [],
+  },
+
+  'our-games': {
+    id: 'our-games',
+    name: 'Our Games',
+    description: 'The full game catalogue',
+    allowed: [
+      'HeroBanner',
+      'GameGrid',
+      'PromoCarousel',
+      'JackpotTicker',
+      'TournamentWidget',
+      'Tabs',
+      'Accordion',
+      'DropdownMenu',
+      'ModalOpener',
+      'Counter',
+      'ButtonRow',
+      'CardGrid',
+      'Heading',
+      'Text',
+      'Divider',
+      'ResponsibleGambling',
+      'GameCard',
+      'GameCardGrid',
+      'GameCarousel',
+      'BigCarousel',
+      'SmallHorizontalCarousel',
+    ],
+    required: [],
+  },
+  'about-us': {
+    id: 'about-us',
+    name: 'About Us',
+    description: 'Who we are and how we operate',
     allowed: [
       'HeroBanner',
       'GameGrid',
