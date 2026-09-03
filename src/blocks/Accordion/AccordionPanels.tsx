@@ -30,8 +30,10 @@ export function AccordionPanels({ items }: AccordionPanelsProps) {
               </span>
             </RadixAccordion.Trigger>
           </RadixAccordion.Header>
-          <RadixAccordion.Content className="overflow-hidden px-5 pb-5 text-sm leading-relaxed text-pretty text-muted">
-            {item.answer}
+          <RadixAccordion.Content className="overflow-hidden">
+            <div className="px-5 pt-1 pb-5 text-sm leading-relaxed text-pretty text-muted">
+              {item.answer}
+            </div>
           </RadixAccordion.Content>
         </RadixAccordion.Item>
       ))}
