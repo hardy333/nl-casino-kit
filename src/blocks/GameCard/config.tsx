@@ -9,10 +9,19 @@ export const gameCardConfig: ComponentConfig<GameCardProps> = {
   fields: {
     gameId: { type: 'select', label: 'Game', options: nextLevelGameOptions },
     token: { type: 'text', label: 'Token' },
+    openMode: {
+      type: 'radio',
+      label: 'Open mode',
+      options: [
+        { label: 'Modal', value: 'modal' },
+        { label: 'Redirect', value: 'redirect' },
+      ],
+    },
   },
   defaultProps: {
     gameId: 'ufo',
     token: '',
+    openMode: 'modal',
   },
   render: (props) => (
     <BlockShell>

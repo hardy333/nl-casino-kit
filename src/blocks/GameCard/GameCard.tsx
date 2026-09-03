@@ -1,11 +1,17 @@
 import * as RadixDialog from '@radix-ui/react-dialog'
 import { findNextLevelGame } from '@/data/nextLevelGames'
-import { GradientSurface } from '@/ui/GradientSurface'
-import { NextLevelGameIcon } from '@/ui/NextLevelGameIcon'
+import { GameCardFace } from './GameCardFace'
+import { gamePath, requestNavigate } from './gamePath'
 import { launchUrl } from './launchUrl'
 import type { GameCardProps } from './types'
 
-export function GameCard({ gameId, token }: GameCardProps) {
+const SHELL_CLASS =
+  'block w-full cursor-pointer overflow-hidden rounded-block border border-border bg-surface text-left transition-transform duration-200 hover:-translate-y-1 hover:border-brand/50'
+
+const DISABLED_CLASS =
+  'disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0 disabled:hover:border-border'
+
+export function GameCard({ gameId, token, openMode = 'modal' }: GameCardProps) {
   const game = findNextLevelGame(gameId)
 
   if (!game) {
@@ -18,26 +24,31 @@ export function GameCard({ gameId, token }: GameCardProps) {
 
   const hasToken = Boolean(token)
 
+  if (openMode === 'redirect') {
+    if (!hasToken) {
+      return (
+        <div className={`${SHELL_CLASS} cursor-not-allowed opacity-60 hover:translate-y-0 hover:border-border`}>
+          <GameCardFace game={game} hasToken={false} />
+        </div>
+      )
+    }
+
+    return (
+      <a
+        href={gamePath(game.id, token)}
+        onClick={(event) => requestNavigate(event, gamePath(game.id, token))}
+        className={SHELL_CLASS}
+      >
+        <GameCardFace game={game} hasToken />
+      </a>
+    )
+  }
+
   return (
     <RadixDialog.Root>
       <RadixDialog.Trigger asChild disabled={!hasToken}>
-        <button
-          type="button"
-          disabled={!hasToken}
-          className="w-full cursor-pointer overflow-hidden rounded-block border border-border bg-surface text-left transition-transform duration-200 hover:-translate-y-1 hover:border-brand/50 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0 disabled:hover:border-border"
-        >
-          <GradientSurface
-            gradient={{ from: '#7c2d12', to: '#f5c451' }}
-            className="flex aspect-square items-center justify-center"
-          >
-            <NextLevelGameIcon id={game.id} className="size-16 text-black/70" />
-          </GradientSurface>
-
-          <div className="flex flex-col gap-1 p-4">
-            <p className="text-xs tracking-widest text-muted uppercase">Next Level Games</p>
-            <h3 className="text-base font-semibold text-body">{game.name}</h3>
-            {!hasToken && <p className="text-xs text-gold">No token set — card is disabled</p>}
-          </div>
+        <button type="button" disabled={!hasToken} className={`${SHELL_CLASS} ${DISABLED_CLASS}`}>
+          <GameCardFace game={game} hasToken={hasToken} />
         </button>
       </RadixDialog.Trigger>
 

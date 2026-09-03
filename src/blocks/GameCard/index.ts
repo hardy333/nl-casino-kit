@@ -1,4 +1,5 @@
 export { GameCard } from './GameCard'
 export { gameCardConfig } from './config'
 export { launchUrl } from './launchUrl'
-export type { GameCardProps } from './types'
+export { gamePath, requestNavigate, GAME_NAVIGATE_EVENT } from './gamePath'
+export type { GameCardProps, GameOpenMode } from './types'
