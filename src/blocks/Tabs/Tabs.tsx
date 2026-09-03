@@ -1,4 +1,5 @@
 import * as RadixTabs from '@radix-ui/react-tabs'
+import type { PuckComponent } from '@puckeditor/core'
 import { cn } from '@/lib/cn'
 import { BlockHeader } from '@/ui/BlockHeader'
 import { BlockShell } from '@/ui/BlockShell'
@@ -11,7 +12,7 @@ const TRIGGER_CLASS: Record<TabVariant, string> = {
     'rounded-none border-b-2 border-transparent px-1 py-2 data-[state=active]:border-brand data-[state=active]:text-brand-hover',
 }
 
-export function Tabs({ title, subtitle, variant, tabs }: TabsProps) {
+export const Tabs: PuckComponent<TabsProps> = ({ title, subtitle, variant, tabs }) => {
   if (tabs.length === 0) {
     return (
       <BlockShell>

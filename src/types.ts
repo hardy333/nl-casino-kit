@@ -15,11 +15,20 @@ export type PageDefinition = {
 export type BlockName =
   | 'HeroBanner'
   | 'GameGrid'
-  | 'CardGrid'
+  | 'PromoCarousel'
+  | 'JackpotTicker'
+  | 'TournamentWidget'
+  | 'Tabs'
+  | 'Accordion'
+  | 'DropdownMenu'
+  | 'ModalOpener'
+  | 'Counter'
   | 'ButtonRow'
+  | 'CardGrid'
   | 'Heading'
   | 'Text'
   | 'Divider'
+  | 'ResponsibleGambling'
 
 export type Align = 'left' | 'center' | 'right'
 export type ButtonVariant = 'neon' | 'gold' | 'outline' | 'ghost'
@@ -44,11 +53,20 @@ export const PAGES: Record<PageId, PageDefinition> = {
     allowed: [
       'HeroBanner',
       'GameGrid',
-      'CardGrid',
+      'PromoCarousel',
+      'JackpotTicker',
+      'TournamentWidget',
+      'Tabs',
+      'Accordion',
+      'DropdownMenu',
+      'ModalOpener',
+      'Counter',
       'ButtonRow',
+      'CardGrid',
       'Heading',
       'Text',
       'Divider',
+      'ResponsibleGambling',
     ],
     required: [],
   },
