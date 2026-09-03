@@ -39,7 +39,7 @@ export const Tabs: PuckComponent<TabsProps> = ({ title, subtitle, variant, tabs 
               key={index}
               value={`tab-${index}`}
               className={cn(
-                'cursor-pointer text-sm font-semibold text-muted transition duration-200 ease-out-quart hover:text-body focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand',
+                'cursor-pointer text-sm font-semibold text-muted select-none transition duration-200 ease-out-quart hover:text-body focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand',
                 TRIGGER_CLASS[variant],
               )}
             >
