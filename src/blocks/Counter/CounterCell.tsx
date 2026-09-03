@@ -9,8 +9,8 @@ type CounterCellProps = {
 }
 
 const ACCENT_CLASS: Record<CounterAccent, string> = {
-  brand: 'text-brand-hover',
-  gold: 'text-gold',
+  brand: 'text-brand-hover text-glow-brand',
+  gold: 'text-gold text-glow-gold',
   neon: 'text-neon',
   body: 'text-body',
 }
@@ -20,10 +20,10 @@ export function CounterCell({ item, durationMs, accent }: CounterCellProps) {
   const decimals = Number.isInteger(item.value) ? 0 : 1
 
   return (
-    <div className="rounded-block border border-border bg-surface px-5 py-4">
+    <div className="min-w-40 flex-1 rounded-block bg-surface px-6 py-5 shadow-tile ring-1 ring-inset ring-border transition duration-300 ease-out-quart hover:ring-border-strong">
       <p
         className={cn(
-          'font-mono text-3xl font-extrabold tabular-nums sm:text-4xl',
+          'font-mono text-4xl font-extrabold tracking-tight tabular-nums sm:text-5xl',
           ACCENT_CLASS[accent],
         )}
       >
@@ -34,7 +34,9 @@ export function CounterCell({ item, durationMs, accent }: CounterCellProps) {
         })}
         {item.suffix}
       </p>
-      <p className="mt-1 text-xs tracking-widest text-muted uppercase">{item.label}</p>
+      <p className="mt-2 text-[11px] font-semibold tracking-[0.18em] text-faint uppercase">
+        {item.label}
+      </p>
     </div>
   )
 }

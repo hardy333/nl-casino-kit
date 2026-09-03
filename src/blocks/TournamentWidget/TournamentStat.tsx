@@ -7,8 +7,10 @@ type TournamentStatProps = {
 export function TournamentStat({ label, value, tone }: TournamentStatProps) {
   return (
     <div>
-      <p className="text-xs tracking-widest text-muted uppercase">{label}</p>
-      <p className={`text-2xl font-extrabold ${tone}`}>{value}</p>
+      <p className="text-[11px] font-semibold tracking-[0.18em] text-faint uppercase">{label}</p>
+      <p className={`mt-1 font-mono text-2xl font-extrabold tabular-nums sm:text-3xl ${tone}`}>
+        {value}
+      </p>
     </div>
   )
 }

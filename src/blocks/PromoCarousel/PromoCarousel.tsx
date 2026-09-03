@@ -54,8 +54,10 @@ export function PromoCarousel({ title, slides, autoplay, intervalMs }: PromoCaro
                   aria-current={dot === active}
                   onClick={() => setIndex(dot)}
                   className={cn(
-                    'h-1.5 rounded-pill transition-all',
-                    dot === active ? 'w-8 bg-white' : 'w-3 bg-white/40 hover:bg-white/70',
+                    'h-1.5 cursor-pointer rounded-pill transition-all duration-300 ease-out-quart',
+                    dot === active
+                      ? 'w-10 bg-white shadow-tile'
+                      : 'w-3 bg-white/40 hover:w-5 hover:bg-white/70',
                   )}
                 />
               ))}

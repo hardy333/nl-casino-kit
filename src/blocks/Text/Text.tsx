@@ -1,13 +1,7 @@
 import { cn } from '@/lib/cn'
 import { BlockShell } from '@/ui/BlockShell'
-import type { Align } from '@/types'
+import { TEXT_ALIGN_CLASS } from '@/ui/align'
 import type { TextProps, TextTone } from './types'
-
-const ALIGN_CLASS: Record<Align, string> = {
-  left: 'text-left',
-  center: 'text-center',
-  right: 'text-right',
-}
 
 const TONE_CLASS: Record<TextTone, string> = {
   body: 'text-body',
@@ -20,11 +14,11 @@ export function Text({ body, align, tone }: TextProps) {
   if (!paragraphs.length) return <></>
 
   return (
-    <BlockShell className="py-4">
+    <BlockShell className="py-5">
       <div
         className={cn(
-          'mx-auto max-w-3xl space-y-3 text-sm leading-relaxed sm:text-base',
-          ALIGN_CLASS[align],
+          'mx-auto max-w-[68ch] space-y-4 text-base leading-[1.7] text-pretty',
+          TEXT_ALIGN_CLASS[align],
           TONE_CLASS[tone],
         )}
       >

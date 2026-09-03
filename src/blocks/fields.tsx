@@ -1,4 +1,5 @@
 import type { Field } from '@puckeditor/core'
+import { ColorPicker } from '@/ui/ColorPicker'
 import type { Align, ButtonSize, ButtonVariant, Cta, Gradient } from '@/types'
 
 export function booleanField(
@@ -64,13 +65,23 @@ export function buttonSizeField(label = 'Size'): Field<ButtonSize> {
   }
 }
 
+export function colorField(label: string): Field<string> {
+  return {
+    type: 'custom',
+    label,
+    render: ({ value, onChange }) => (
+      <ColorPicker value={value ?? ''} onChange={onChange} />
+    ),
+  }
+}
+
 export function gradientField(label = 'Gradient'): Field<Gradient> {
   return {
     type: 'object',
     label,
     objectFields: {
-      from: { type: 'text', label: 'From' },
-      to: { type: 'text', label: 'To' },
+      from: colorField('From'),
+      to: colorField('To'),
     },
   }
 }

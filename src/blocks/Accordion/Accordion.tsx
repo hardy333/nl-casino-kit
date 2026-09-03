@@ -6,7 +6,7 @@ import { AccordionPanels } from './AccordionPanels'
 import type { AccordionProps } from './types'
 
 const ROOT_CLASS =
-  'divide-y divide-border overflow-hidden rounded-block border border-border bg-surface'
+  'overflow-hidden rounded-block bg-surface shadow-tile ring-1 ring-inset ring-border'
 
 export function Accordion({ title, subtitle, allowMultiple, items }: AccordionProps) {
   if (items.length === 0) {

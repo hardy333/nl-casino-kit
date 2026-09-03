@@ -7,9 +7,9 @@ import { EmptyState } from '@/ui/EmptyState'
 import type { TabsProps, TabVariant } from './types'
 
 const TRIGGER_CLASS: Record<TabVariant, string> = {
-  pill: 'rounded-lg px-4 py-2 data-[state=active]:bg-brand data-[state=active]:text-brand-contrast',
+  pill: 'rounded-pill px-4 py-2 data-[state=active]:bg-brand data-[state=active]:text-brand-contrast data-[state=active]:shadow-tile',
   underline:
-    'rounded-none border-b-2 border-transparent px-1 py-2 data-[state=active]:border-brand data-[state=active]:text-brand-hover',
+    'rounded-none border-b-2 border-transparent px-1 py-3 data-[state=active]:border-brand data-[state=active]:text-brand-hover',
 }
 
 export const Tabs: PuckComponent<TabsProps> = ({ title, subtitle, variant, tabs }) => {
@@ -28,10 +28,10 @@ export const Tabs: PuckComponent<TabsProps> = ({ title, subtitle, variant, tabs 
       <RadixTabs.Root defaultValue="tab-0" className="w-full">
         <RadixTabs.List
           className={cn(
-            'flex flex-wrap gap-2',
+            'flex flex-wrap',
             variant === 'pill'
-              ? 'rounded-block border border-border bg-surface p-1'
-              : 'gap-6 border-b border-border',
+              ? 'gap-1.5 rounded-pill bg-surface p-1.5 ring-1 ring-inset ring-border'
+              : 'gap-8 border-b border-border',
           )}
         >
           {tabs.map((tab, index) => (
@@ -39,7 +39,7 @@ export const Tabs: PuckComponent<TabsProps> = ({ title, subtitle, variant, tabs 
               key={index}
               value={`tab-${index}`}
               className={cn(
-                'cursor-pointer text-sm font-semibold text-muted transition-colors hover:text-body focus-visible:outline-2 focus-visible:outline-brand',
+                'cursor-pointer text-sm font-semibold text-muted transition duration-200 ease-out-quart hover:text-body focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand',
                 TRIGGER_CLASS[variant],
               )}
             >
@@ -53,7 +53,7 @@ export const Tabs: PuckComponent<TabsProps> = ({ title, subtitle, variant, tabs 
           <RadixTabs.Content
             key={index}
             value={`tab-${index}`}
-            className="pt-4 focus-visible:outline-none"
+            className="pt-6 focus-visible:outline-none"
           >
             <tab.content />
           </RadixTabs.Content>
