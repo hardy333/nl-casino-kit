@@ -3,6 +3,7 @@ import { cn } from '@/lib/cn'
 import { BlockShell } from '@/ui/BlockShell'
 import { EmptyState } from '@/ui/EmptyState'
 import { ShowcaseCard } from './ShowcaseCard'
+import { useTabIndicator } from './useTabIndicator'
 import type { GameShowcaseProps } from './types'
 
 const COLUMN_CLASS: Record<number, string> = {
@@ -24,6 +25,7 @@ export function GameShowcase({
   games,
 }: GameShowcaseProps) {
   const [active, setActive] = useState(ALL)
+  const { listRef, indicator } = useTabIndicator(active)
 
   const tabs = useMemo(() => {
     const counts = new Map<string, number>()
@@ -53,34 +55,52 @@ export function GameShowcase({
         </div>
       ) : (
         <>
-          <div role="tablist" aria-label={title} className="mt-6 flex flex-wrap gap-2.5">
-            {tabs.map((tab) => (
-              <button
-                key={tab.key}
-                type="button"
-                role="tab"
-                aria-selected={active === tab.key}
-                onClick={() => setActive(tab.key)}
-                className={cn(
-                  'flex cursor-pointer items-center gap-2.5 rounded-pill px-5 py-2.5 text-xs font-bold tracking-widest uppercase transition duration-200 ease-out-quart select-none',
-                  active === tab.key
-                    ? 'bg-brand text-brand-contrast shadow-tile'
-                    : 'bg-surface text-muted ring-1 ring-inset ring-border hover:text-body',
-                )}
-              >
-                {tab.label}
-                {showCounts && (
-                  <span
-                    className={cn(
-                      'grid min-w-6 place-items-center rounded-pill px-1.5 py-0.5 text-[11px] tabular-nums',
-                      active === tab.key ? 'bg-black/20' : 'bg-surface-raised',
-                    )}
-                  >
-                    {tab.count}
-                  </span>
-                )}
-              </button>
-            ))}
+          <div
+            ref={listRef}
+            role="tablist"
+            aria-label={title}
+            className="relative mt-6 flex flex-wrap gap-2.5"
+          >
+            {indicator && (
+              <span
+                aria-hidden
+                className="pointer-events-none absolute top-0 bottom-0 rounded-pill bg-brand shadow-tile transition-[left,width] duration-300 ease-out-expo motion-reduce:transition-none"
+                style={{ left: indicator.left, width: indicator.width }}
+              />
+            )}
+
+            {tabs.map((tab) => {
+              const isActive = active === tab.key
+
+              return (
+                <button
+                  key={tab.key}
+                  type="button"
+                  role="tab"
+                  data-active={isActive}
+                  aria-selected={isActive}
+                  onClick={() => setActive(tab.key)}
+                  className={cn(
+                    'relative z-10 flex cursor-pointer items-center gap-2.5 rounded-pill px-5 py-2.5 text-xs font-bold tracking-widest uppercase transition-colors duration-300 ease-out-quart select-none',
+                    isActive
+                      ? 'text-brand-contrast'
+                      : 'bg-surface text-muted ring-1 ring-inset ring-border hover:text-body',
+                  )}
+                >
+                  {tab.label}
+                  {showCounts && (
+                    <span
+                      className={cn(
+                        'grid min-w-6 place-items-center rounded-pill px-1.5 py-0.5 text-[11px] tabular-nums transition-colors duration-300',
+                        isActive ? 'bg-black/20' : 'bg-surface-raised',
+                      )}
+                    >
+                      {tab.count}
+                    </span>
+                  )}
+                </button>
+              )
+            })}
           </div>
 
           {visible.length === 0 ? (
@@ -88,9 +108,18 @@ export function GameShowcase({
               <EmptyState title="Nothing in this category" hint="Pick another tab." />
             </div>
           ) : (
-            <div className={cn('mt-6 grid gap-4', COLUMN_CLASS[columns] ?? COLUMN_CLASS[4])}>
+            <div
+              key={active}
+              className={cn('mt-6 grid gap-4', COLUMN_CLASS[columns] ?? COLUMN_CLASS[4])}
+            >
               {visible.map((game, index) => (
-                <ShowcaseCard key={index} game={game} />
+                <div
+                  key={`${active}-${index}`}
+                  className="animate-showcase-in"
+                  style={{ animationDelay: `${Math.min(index, 8) * 40}ms` }}
+                >
+                  <ShowcaseCard game={game} />
+                </div>
               ))}
             </div>
           )}
