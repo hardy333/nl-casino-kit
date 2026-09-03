@@ -26,7 +26,7 @@ export function PromoCarousel({ title, slides, autoplay, intervalMs }: PromoCaro
         dotsInside
       >
         {slides.map((slide, index) => (
-          <div key={index}>
+          <div key={index} className="flex *:w-full">
             <PromoPanel
               eyebrow={slide.badge}
               title={slide.title}

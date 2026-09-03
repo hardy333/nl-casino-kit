@@ -81,7 +81,7 @@ export function Carousel({
   const hasControls = snaps.length > 1
 
   const trackClassName = cn(
-    'flex *:min-w-0 *:shrink-0 *:grow-0',
+    'flex items-stretch *:min-w-0 *:shrink-0 *:grow-0',
     gap && '-ml-3 *:pl-3',
     tileWidth ? '*:basis-(--nl-tile)' : (SLIDE_BASIS[slidesToShow] ?? SLIDE_BASIS[1]),
   )

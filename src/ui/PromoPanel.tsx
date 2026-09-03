@@ -52,7 +52,7 @@ export function PromoPanel({
     <GradientSurface gradient={gradient} watermark={glyph}>
       <div
         className={cn(
-          'flex flex-col justify-center',
+          'flex flex-1 flex-col justify-center',
           HEIGHT_CLASS[height],
           ITEMS_CLASS[align],
           TEXT_ALIGN_CLASS[align],

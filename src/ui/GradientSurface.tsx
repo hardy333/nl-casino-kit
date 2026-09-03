@@ -18,7 +18,7 @@ export function GradientSurface({
   return (
     <div
       className={cn(
-        'relative isolate overflow-hidden rounded-block shadow-block ring-1 ring-inset ring-white/10',
+        'relative isolate flex h-full flex-col overflow-hidden rounded-block shadow-block ring-1 ring-inset ring-white/10',
         className,
       )}
       style={{
@@ -43,7 +43,7 @@ export function GradientSurface({
         </span>
       )}
 
-      <div className="relative">{children}</div>
+      <div className="relative flex flex-1 flex-col">{children}</div>
     </div>
   )
 }

@@ -81,7 +81,7 @@ export const BigCarousel: PuckComponent<BigCarouselProps> = ({
           header={header}
         >
           {games.map((game) => (
-            <div key={game.id}>
+            <div key={game.id} className="flex *:w-full">
               <GameTile
                 game={game}
                 size="lg"
