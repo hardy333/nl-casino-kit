@@ -8,6 +8,8 @@ type BlockHeaderProps = {
   subtitle?: string
   align?: Align
   action?: ReactNode
+  /** Drops the bottom margin when the header sits inside another layout. */
+  isBare?: boolean
 }
 
 export function BlockHeader({
@@ -15,13 +17,15 @@ export function BlockHeader({
   subtitle,
   align = 'left',
   action,
+  isBare = false,
 }: BlockHeaderProps) {
   if (!title && !subtitle && !action) return null
 
   return (
     <div
       className={cn(
-        'mb-5 flex gap-4',
+        'flex gap-4',
+        !isBare && 'mb-5',
         align === 'center'
           ? 'flex-col items-center'
           : 'flex-wrap items-end justify-between',

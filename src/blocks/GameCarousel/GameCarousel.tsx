@@ -25,12 +25,6 @@ export function GameCarousel({
 
   return (
     <BlockShell>
-      <BlockHeader
-        title={title}
-        subtitle={subtitle}
-        action={<ActionButton cta={viewAll} size="sm" />}
-      />
-
       {games.length === 0 ? (
         <EmptyState
           title="No games match this selection"
@@ -43,6 +37,15 @@ export function GameCarousel({
           autoplay={autoplay}
           intervalMs={intervalMs}
           showDots={false}
+          headerArrows
+          header={
+            <BlockHeader
+              isBare
+              title={title}
+              subtitle={subtitle}
+              action={<ActionButton cta={viewAll} size="sm" />}
+            />
+          }
         >
           {games.map((game) => (
             <div key={game.id}>

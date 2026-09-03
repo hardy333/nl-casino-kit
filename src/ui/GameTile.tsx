@@ -24,7 +24,7 @@ export function GameTile({
   showJackpot = true,
 }: GameTileProps) {
   return (
-    <article className="group relative isolate flex flex-col overflow-hidden rounded-tile bg-surface shadow-tile ring-1 ring-border transition duration-300 ease-out-quart hover:-translate-y-1 hover:shadow-lifted hover:ring-border-strong focus-within:-translate-y-1">
+    <article className="group relative isolate flex h-full flex-col overflow-hidden rounded-tile bg-surface shadow-tile ring-1 ring-border transition duration-300 ease-out-quart hover:-translate-y-1 hover:shadow-lifted hover:ring-border-strong focus-within:-translate-y-1">
       <div className="relative overflow-hidden">
         <div
           className={cn(
@@ -55,18 +55,16 @@ export function GameTile({
         </div>
       </div>
 
-      <div className="flex items-start justify-between gap-2 px-3 pt-2.5 pb-3">
-        <div className="min-w-0">
-          <h3 className="truncate text-sm font-semibold text-body">{game.name}</h3>
-          <p className="mt-0.5 truncate text-[11px] tracking-wide text-faint uppercase">
-            {game.provider}
-          </p>
-        </div>
+      <div className="min-w-0 px-3 pt-2.5 pb-3">
+        <h3 className="truncate text-sm font-semibold text-body">{game.name}</h3>
+        <p className="mt-0.5 truncate text-[11px] tracking-wide text-faint uppercase">
+          {game.provider}
+        </p>
       </div>
 
-      {showJackpot && game.jackpot && (
+      {showJackpot && (
         <p className="mt-auto border-t border-border/70 px-3 py-2 font-mono text-xs font-bold tabular-nums text-gold">
-          {game.jackpot}
+          {game.jackpot ?? ' '}
         </p>
       )}
     </article>
