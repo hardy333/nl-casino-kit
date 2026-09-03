@@ -20,6 +20,7 @@ export function buildEditorConfig(pageId: PageId): Config {
         key,
         {
           title: category.title,
+          defaultExpanded: category.defaultExpanded,
           components: category.components.filter((name) => allowed.includes(name)),
         },
       ])

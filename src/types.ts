@@ -32,6 +32,8 @@ export type BlockName =
   | 'GameCard'
   | 'GameCardGrid'
   | 'GameCarousel'
+  | 'BigCarousel'
+  | 'SmallHorizontalCarousel'
 
 export type Align = 'left' | 'center' | 'right'
 export type ButtonVariant = 'neon' | 'gold' | 'outline' | 'ghost'
@@ -73,6 +75,8 @@ export const PAGES: Record<PageId, PageDefinition> = {
       'GameCard',
       'GameCardGrid',
       'GameCarousel',
+      'BigCarousel',
+      'SmallHorizontalCarousel',
     ],
     required: [],
   },

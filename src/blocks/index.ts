@@ -1,6 +1,7 @@
 import type { ComponentConfig } from '@puckeditor/core'
 import type { BlockName } from '@/types'
 import { accordionConfig } from './Accordion'
+import { bigCarouselConfig } from './BigCarousel'
 import { buttonRowConfig } from './ButtonRow'
 import { cardGridConfig } from './CardGrid'
 import { counterConfig } from './Counter'
@@ -16,6 +17,7 @@ import { jackpotTickerConfig } from './JackpotTicker'
 import { modalOpenerConfig } from './ModalOpener'
 import { promoCarouselConfig } from './PromoCarousel'
 import { responsibleGamblingConfig } from './ResponsibleGambling'
+import { smallHorizontalCarouselConfig } from './SmallHorizontalCarousel'
 import { tabsConfig } from './Tabs'
 import { textConfig } from './Text'
 import { tournamentWidgetConfig } from './TournamentWidget'
@@ -27,6 +29,8 @@ export const BLOCKS: Record<BlockName, ComponentConfig<any>> = {
   GameCard: gameCardConfig,
   GameCardGrid: gameCardGridConfig,
   GameCarousel: gameCarouselConfig,
+  BigCarousel: bigCarouselConfig,
+  SmallHorizontalCarousel: smallHorizontalCarouselConfig,
   PromoCarousel: promoCarouselConfig,
   JackpotTicker: jackpotTickerConfig,
   TournamentWidget: tournamentWidgetConfig,
@@ -45,15 +49,21 @@ export const BLOCKS: Record<BlockName, ComponentConfig<any>> = {
 
 export const BLOCK_NAMES = Object.keys(BLOCKS) as BlockName[]
 
-export const CATEGORIES: Record<string, { title: string; components: BlockName[] }> = {
+export const CATEGORIES: Record<
+  string,
+  { title: string; components: BlockName[]; defaultExpanded: boolean }
+> = {
   casino: {
     title: 'Casino',
+    defaultExpanded: true,
     components: [
       'HeroBanner',
       'GameGrid',
       'GameCard',
       'GameCardGrid',
       'GameCarousel',
+      'BigCarousel',
+      'SmallHorizontalCarousel',
       'PromoCarousel',
       'JackpotTicker',
       'TournamentWidget',
@@ -61,14 +71,17 @@ export const CATEGORIES: Record<string, { title: string; components: BlockName[]
   },
   interactive: {
     title: 'Interactive',
+    defaultExpanded: false,
     components: ['Tabs', 'Accordion', 'DropdownMenu', 'ModalOpener', 'Counter'],
   },
   content: {
     title: 'Content',
+    defaultExpanded: false,
     components: ['CardGrid', 'Heading', 'Text', 'ResponsibleGambling'],
   },
   layout: {
     title: 'Layout',
+    defaultExpanded: false,
     components: ['ButtonRow', 'Divider'],
   },
 }
