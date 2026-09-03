@@ -10,6 +10,7 @@ import { dropdownMenuConfig } from './DropdownMenu'
 import { gameCardConfig } from './GameCard'
 import { gameCardGridConfig } from './GameCardGrid'
 import { gameCarouselConfig } from './GameCarousel'
+import { gameShowcaseConfig } from './GameShowcase'
 import { gameGridConfig } from './GameGrid'
 import { headingConfig } from './Heading'
 import { heroBannerConfig } from './HeroBanner'
@@ -29,6 +30,7 @@ export const BLOCKS: Record<BlockName, ComponentConfig<any>> = {
   GameCard: gameCardConfig,
   GameCardGrid: gameCardGridConfig,
   GameCarousel: gameCarouselConfig,
+  GameShowcase: gameShowcaseConfig,
   BigCarousel: bigCarouselConfig,
   SmallHorizontalCarousel: smallHorizontalCarouselConfig,
   PromoCarousel: promoCarouselConfig,
@@ -70,7 +72,7 @@ export const CATEGORIES: Record<
   games: {
     title: 'Games',
     defaultExpanded: true,
-    components: ['GameCard', 'GameGrid', 'GameCardGrid'],
+    components: ['GameCard', 'GameGrid', 'GameCardGrid', 'GameShowcase'],
   },
   carousels: {
     title: 'Carousels',

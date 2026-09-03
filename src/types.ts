@@ -32,6 +32,7 @@ export type BlockName =
   | 'GameCard'
   | 'GameCardGrid'
   | 'GameCarousel'
+  | 'GameShowcase'
   | 'BigCarousel'
   | 'SmallHorizontalCarousel'
 
@@ -75,6 +76,7 @@ export const PAGES: Record<PageId, PageDefinition> = {
       'GameCard',
       'GameCardGrid',
       'GameCarousel',
+      'GameShowcase',
       'BigCarousel',
       'SmallHorizontalCarousel',
     ],
@@ -105,6 +107,7 @@ export const PAGES: Record<PageId, PageDefinition> = {
       'GameCard',
       'GameCardGrid',
       'GameCarousel',
+      'GameShowcase',
       'BigCarousel',
       'SmallHorizontalCarousel',
     ],
@@ -134,6 +137,7 @@ export const PAGES: Record<PageId, PageDefinition> = {
       'GameCard',
       'GameCardGrid',
       'GameCarousel',
+      'GameShowcase',
       'BigCarousel',
       'SmallHorizontalCarousel',
     ],
