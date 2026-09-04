@@ -24,6 +24,7 @@
     "dev": "vite --config vite.playground.config.ts",
     "build": "vite build",
     "build:watch": "vite build --watch",
+    "prepare": "vite build",
     "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
