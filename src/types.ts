@@ -36,6 +36,7 @@ export type BlockName =
   | 'ResponsibleGambling'
   | 'GameCard'
   | 'GameButton'
+  | 'GameLaunchContainer'
   | 'GameCardGrid'
   | 'GameCarousel'
   | 'GameShowcase'

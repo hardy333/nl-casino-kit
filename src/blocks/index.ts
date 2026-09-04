@@ -9,6 +9,7 @@ import { dividerConfig } from './Divider'
 import { dropdownMenuConfig } from './DropdownMenu'
 import { gameCardConfig } from './GameCard'
 import { gameButtonConfig } from './GameButton'
+import { gameLaunchContainerConfig } from './GameLaunchContainer'
 import { gameCardGridConfig } from './GameCardGrid'
 import { gameCarouselConfig } from './GameCarousel'
 import { gameShowcaseConfig } from './GameShowcase'
@@ -30,6 +31,7 @@ export const BLOCKS: Record<BlockName, ComponentConfig<any>> = {
   GameGrid: gameGridConfig,
   GameCard: gameCardConfig,
   GameButton: gameButtonConfig,
+  GameLaunchContainer: gameLaunchContainerConfig,
   GameCardGrid: gameCardGridConfig,
   GameCarousel: gameCarouselConfig,
   GameShowcase: gameShowcaseConfig,
@@ -74,7 +76,14 @@ export const CATEGORIES: Record<
   games: {
     title: 'Games',
     defaultExpanded: true,
-    components: ['GameCard', 'GameButton', 'GameGrid', 'GameCardGrid', 'GameShowcase'],
+    components: [
+      'GameCard',
+      'GameButton',
+      'GameLaunchContainer',
+      'GameGrid',
+      'GameCardGrid',
+      'GameShowcase',
+    ],
   },
   carousels: {
     title: 'Carousels',
