@@ -12,7 +12,7 @@ export function EditorRoute() {
   return (
     <div className="h-screen">
       <Puck
-        config={buildEditorConfig('home')}
+        config={buildEditorConfig()}
         data={initial}
         iframe={{ enabled: false }}
         onChange={writePlaygroundData}

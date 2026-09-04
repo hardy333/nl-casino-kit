@@ -30,11 +30,10 @@ export * from './blocks/fields'
 export { LOCALES, LOCALE_IDS, DEFAULT_LOCALE, isLocale, rowsToMap } from './i18n'
 export type { Locale, LocaleDefinition, TranslationRow, TranslationMap } from './i18n'
 
-export { PAGES, PAGE_IDS, isPageId } from './types'
 export type {
   PageData,
   PageId,
-  PageDefinition,
+  PageRecord,
   BlockName,
   Align,
   ButtonVariant,

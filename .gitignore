@@ -3,3 +3,4 @@ dist
 *.local
 .DS_Store
 .pg-test
+tsconfig.tsbuildinfo
