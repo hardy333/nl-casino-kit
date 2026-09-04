@@ -4,7 +4,7 @@ import { cn } from '@/lib/cn'
 import { BlockHeader } from '@/ui/BlockHeader'
 import { BlockShell } from '@/ui/BlockShell'
 import { EmptyState } from '@/ui/EmptyState'
-import type { TabsProps, TabVariant } from './types'
+import { CONTENT_SLOT_KEYS, type TabsProps, type TabVariant } from './types'
 
 const TRIGGER_CLASS: Record<TabVariant, string> = {
   pill: 'rounded-pill px-4 py-2 data-[state=active]:bg-brand data-[state=active]:text-brand-contrast data-[state=active]:shadow-tile',
@@ -12,8 +12,14 @@ const TRIGGER_CLASS: Record<TabVariant, string> = {
     'rounded-none border-b-2 border-transparent px-1 py-3 data-[state=active]:border-brand data-[state=active]:text-brand-hover',
 }
 
-export const Tabs: PuckComponent<TabsProps> = ({ title, subtitle, variant, tabs }) => {
-  if (tabs.length === 0) {
+export const Tabs: PuckComponent<TabsProps> = (props) => {
+  const { title, subtitle, variant, tabs } = props
+
+  const visible = tabs
+    .map((tab, index) => ({ tab, Content: props[CONTENT_SLOT_KEYS[index]] }))
+    .filter(({ tab }) => tab.isEnabled)
+
+  if (visible.length === 0) {
     return (
       <BlockShell>
         <EmptyState title="No tabs yet" hint="Add one in the Tabs field." />
@@ -34,7 +40,7 @@ export const Tabs: PuckComponent<TabsProps> = ({ title, subtitle, variant, tabs 
               : 'gap-8 border-b border-border',
           )}
         >
-          {tabs.map((tab, index) => (
+          {visible.map(({ tab }, index) => (
             <RadixTabs.Trigger
               key={index}
               value={`tab-${index}`}
@@ -49,13 +55,13 @@ export const Tabs: PuckComponent<TabsProps> = ({ title, subtitle, variant, tabs 
           ))}
         </RadixTabs.List>
 
-        {tabs.map((tab, index) => (
+        {visible.map(({ Content }, index) => (
           <RadixTabs.Content
             key={index}
             value={`tab-${index}`}
             className="pt-6 focus-visible:outline-none"
           >
-            <tab.content />
+            <Content />
           </RadixTabs.Content>
         ))}
       </RadixTabs.Root>

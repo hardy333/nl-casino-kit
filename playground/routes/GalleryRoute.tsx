@@ -1,5 +1,20 @@
+import type { ComponentConfig } from '@puckeditor/core'
 import { BLOCKS, BLOCK_NAMES } from '@/blocks'
 import { CanvasSurface } from '@/ui/CanvasSurface'
+
+// Outside a real <Puck>/<Render> tree, slot fields are just plain arrays in
+// defaultProps. Puck normally swaps them for a render function; stand one in
+// so a block calling <MySlot /> here doesn't crash on "expected a string
+// ... but got: array".
+function withResolvedSlots(config: ComponentConfig, props: Record<string, unknown>) {
+  const fields = config.fields ?? {}
+
+  return Object.fromEntries(
+    Object.entries(props).map(([key, value]) =>
+      fields[key]?.type === 'slot' ? [key, () => null] : [key, value],
+    ),
+  )
+}
 
 export function GalleryRoute() {
   return (
@@ -14,6 +29,7 @@ export function GalleryRoute() {
       {BLOCK_NAMES.map((name) => {
         const block = BLOCKS[name]
         const Render = block.render
+        const props = withResolvedSlots(block, block.defaultProps ?? {})
 
         return (
           <section key={name} className="border-t border-border py-6">
@@ -22,7 +38,11 @@ export function GalleryRoute() {
                 {name}
               </p>
             </div>
-            <Render {...block.defaultProps} puck={{ renderDropZone: () => null }} />
+            <Render
+              {...props}
+              id={`gallery-${name}`}
+              puck={{ renderDropZone: () => null, metadata: {}, isEditing: false, dragRef: null }}
+            />
           </section>
         )
       })}
