@@ -35,6 +35,7 @@ export type BlockName =
   | 'Divider'
   | 'ResponsibleGambling'
   | 'GameCard'
+  | 'GameButton'
   | 'GameCardGrid'
   | 'GameCarousel'
   | 'GameShowcase'

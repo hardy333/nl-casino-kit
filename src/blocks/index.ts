@@ -8,6 +8,7 @@ import { counterConfig } from './Counter'
 import { dividerConfig } from './Divider'
 import { dropdownMenuConfig } from './DropdownMenu'
 import { gameCardConfig } from './GameCard'
+import { gameButtonConfig } from './GameButton'
 import { gameCardGridConfig } from './GameCardGrid'
 import { gameCarouselConfig } from './GameCarousel'
 import { gameShowcaseConfig } from './GameShowcase'
@@ -28,6 +29,7 @@ export const BLOCKS: Record<BlockName, ComponentConfig<any>> = {
   HeroBanner: heroBannerConfig,
   GameGrid: gameGridConfig,
   GameCard: gameCardConfig,
+  GameButton: gameButtonConfig,
   GameCardGrid: gameCardGridConfig,
   GameCarousel: gameCarouselConfig,
   GameShowcase: gameShowcaseConfig,
@@ -72,7 +74,7 @@ export const CATEGORIES: Record<
   games: {
     title: 'Games',
     defaultExpanded: true,
-    components: ['GameCard', 'GameGrid', 'GameCardGrid', 'GameShowcase'],
+    components: ['GameCard', 'GameButton', 'GameGrid', 'GameCardGrid', 'GameShowcase'],
   },
   carousels: {
     title: 'Carousels',
